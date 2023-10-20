@@ -1,13 +1,19 @@
 import "./App.css";
-import AboutPage from "./pages/aboutPage/AboutPage";
-import MainPage from "./pages/mainPage/MainPage";
-import UsersPage from "./pages/usersPage/UsersPage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import UserRegisterPage from "./pages/userRegisterPage/UsersRegisterPage";
+import UsersListPage from "./pages/usersListPage/UsersListPage";
+import Menu from "./components/Menu";
 
 function App() {
   return (
-    <div className="App">
-      <UsersPage />
-    </div>
+    <BrowserRouter>
+      <Menu />
+      <Routes>
+        <Route index element={<UserRegisterPage />} />
+        <Route path={"/users"} element={<UsersListPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
